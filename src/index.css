@@ -1,0 +1,128 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 30 33% 99%;
+    --foreground: 30 10% 10%;
+
+    --card: 30 33% 100%;
+    --card-foreground: 30 10% 10%;
+
+    --popover: 30 33% 100%;
+    --popover-foreground: 30 10% 10%;
+
+    --primary: 36 33% 63%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 30 20% 96%;
+    --secondary-foreground: 30 10% 10%;
+
+    --muted: 30 10% 94%;
+    --muted-foreground: 30 5% 45%;
+
+    --accent: 30 20% 96%;
+    --accent-foreground: 30 10% 10%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+
+    --border: 30 15% 90%;
+    --input: 30 15% 90%;
+    --ring: 36 33% 63%;
+
+    --radius: 0.5rem;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-feature-settings: "ss01", "ss02", "cv01", "cv02", "cv03";
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-serif;
+  }
+}
+
+@layer components {
+  .container-custom {
+    @apply px-4 md:px-8 lg:px-12 xl:px-16 max-w-[1600px] mx-auto;
+  }
+  
+  .section {
+    @apply py-16 md:py-24;
+  }
+  
+  .section-title {
+    @apply font-serif text-3xl md:text-4xl lg:text-5xl font-medium tracking-tight text-hotel-charcoal mb-6;
+  }
+  
+  .section-subtitle {
+    @apply text-sm uppercase tracking-widest text-hotel-stone font-medium mb-4;
+  }
+  
+  .glass-card {
+    @apply backdrop-blur-sm bg-white/80 border border-white/20 shadow-elegant transition duration-300 hover:shadow-card;
+  }
+  
+  .button-primary {
+    @apply bg-hotel-gold text-white px-6 py-3 rounded-sm transition-all duration-300 hover:bg-hotel-charcoal shadow-button hover:shadow-none;
+  }
+  
+  .button-outline {
+    @apply border border-hotel-gold text-hotel-gold px-6 py-3 rounded-sm transition-all duration-300 hover:bg-hotel-gold hover:text-white shadow-button hover:shadow-none;
+  }
+  
+  .button-text {
+    @apply text-hotel-charcoal hover:text-hotel-gold transition-colors duration-300 flex items-center gap-1;
+  }
+
+  .image-hover-zoom {
+    @apply overflow-hidden;
+  }
+  
+  .image-hover-zoom img {
+    @apply transition-transform duration-700 ease-elegant hover:scale-105 w-full h-full object-cover;
+  }
+  
+  .slide-appear {
+    animation-fill-mode: both;
+    animation-duration: 1s;
+    animation-name: fadeInUp;
+    animation-timing-function: cubic-bezier(0.6, 0.01, 0.05, 0.95);
+  }
+  
+  .page-transition-enter {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  
+  .page-transition-enter-active {
+    opacity: 1;
+    transform: translateY(0);
+    transition: opacity 600ms, transform 600ms cubic-bezier(0.6, 0.01, 0.05, 0.95);
+  }
+  
+  .page-transition-exit {
+    opacity: 1;
+  }
+  
+  .page-transition-exit-active {
+    opacity: 0;
+    transition: opacity 300ms;
+  }
+}
